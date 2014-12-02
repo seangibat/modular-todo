@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TODO</title>
+  <script src="lib/jquery-2.1.1.min.js"></script>
+  <script src="lib/handlebars-v1.3.0.js"></script>
+  <script src="displayModule.js"></script>
+  <script src="todo.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+<script id="todo-template" type="text/template">
+{{#each this}}
+  <tr>
+    <td>
+      <input type="checkbox" {{#if done}}checked {{/if}}  class="{{#if priv}}private{{/if}} todo-done" data-id="{{ @index }}">
+    </td>
+    <td class="{{#if done}}done {{/if}}  {{#if priv}}private{{/if}}  todo-item">
+      {{ description }}
+    </td>
+  </tr>
+{{/each}}
+</script>
+
+</head>
+<body>
+
+  <center>
+    <h1>do something already jeez</h1>
+    private? <input type="checkbox" class="todo-private">
+    <input type="text" class="todo-input">
+    <button class="todo-save">Save</button>
+    <table class="todo-list"></table>
+    <button class="todo-clear">Clear Done</button>
+    <div class="goodJob">
+      <br><img src="dogcat.png"><br><h1>Good Job!</h1>
+    </div>
+  </center>
+
+  <script>
+    Todo.init();
+    Display.init();
+  </script>
+  
+</body>
+</html>
